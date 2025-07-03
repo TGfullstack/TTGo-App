@@ -4,6 +4,8 @@ This repository will be used for tracking progress of the TTGo App. We will use 
 
 ## TTGo (Taylor'D To Go on)
 
+Head to the [docs/](./docs/) folder for TTGo documentation
+
 ### Zachary Taylor
 
 [Log](./docs/log.md)
