@@ -4,7 +4,6 @@ package-lock.json
 
 # Mac OS
 .DS_Store
-.mongo-data/
 # VS Code
 .vscode/
 
