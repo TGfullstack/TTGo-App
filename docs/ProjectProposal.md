@@ -1,4 +1,4 @@
-# TimeTODO list/tasks application
+# TTGo(Taylor'D Todo Go on) list/tasks application
 
 ## Application Definition Statement
 
