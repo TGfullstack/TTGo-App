@@ -49,7 +49,6 @@ export default function TodoForm({ initialData = {}, onSuccess }) {
       const data = await res.json();
       console.log('Todo saved:', data);
       if (onSuccess) onSuccess(data); // Close modal or refresh
-
     } catch (err) {
       console.error('Error:', err.message);
       alert(err.message);
@@ -73,12 +72,12 @@ export default function TodoForm({ initialData = {}, onSuccess }) {
         value={form.task}
         onChange={handleChange}
       />
-      <Select label='Status' defaultSelectedKeys={['pending']}>
-      {['new', 'todo', 'pending','completed'].map(status => (
-        <SelectItem key={status} value={status}>
-          {status.charAt(0).toUpperCase() + status.slice(1)}
-        </SelectItem>
-      ))}
+      <Select label="Status" defaultSelectedKeys={['pending']}>
+        {['new', 'todo', 'pending', 'completed'].map((status) => (
+          <SelectItem key={status} value={status}>
+            {status.charAt(0).toUpperCase() + status.slice(1)}
+          </SelectItem>
+        ))}
       </Select>
       <Checkbox
         name="completed"

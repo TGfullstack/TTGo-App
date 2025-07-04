@@ -51,8 +51,17 @@ export default function TaskModal({ isOpen, onClose, onSubmit, initialData }) {
         <ModalHeader>{initialData ? 'Edit Task' : 'New Task'}</ModalHeader>
         <ModalBody>
           <Input label="Title" value={title} onValueChange={setTitle} />
-          <Input label="Due Date" type="date" value={dueDate} onValueChange={setDueDate} />
-          <Input label="Priority" value={priority} onValueChange={setPriority} />
+          <Input
+            label="Due Date"
+            type="date"
+            value={dueDate}
+            onValueChange={setDueDate}
+          />
+          <Input
+            label="Priority"
+            value={priority}
+            onValueChange={setPriority}
+          />
           <Select
             label="Status"
             defaultSelectedKeys={[status]}
@@ -66,8 +75,12 @@ export default function TaskModal({ isOpen, onClose, onSubmit, initialData }) {
           </Select>
         </ModalBody>
         <ModalFooter>
-          <Button onPress={onClose} variant="light">Cancel</Button>
-          <Button onPress={handleSubmit} color="primary">Save</Button>
+          <Button onPress={onClose} variant="light">
+            Cancel
+          </Button>
+          <Button onPress={handleSubmit} color="primary">
+            Save
+          </Button>
         </ModalFooter>
       </ModalContent>
     </Modal>

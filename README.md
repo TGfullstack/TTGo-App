@@ -6,6 +6,12 @@ This repository will be used for tracking progress of the TTGo App. We will use 
 
 Head to the [docs/](./docs/) folder for TTGo documentation
 
+## Branches
+
+main
+dev
+stage
+
 ### Zachary Taylor
 
 [Log](./docs/log.md)

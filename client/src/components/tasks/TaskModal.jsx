@@ -9,7 +9,7 @@ import {
   ModalFooter,
   ModalHeader,
   Select,
-  SelectItem
+  SelectItem,
 } from '@heroui/react';
 import { useEffect, useState } from 'react';
 
@@ -23,18 +23,24 @@ export default function TaskModal({ isOpen, onClose, onSubmit, initialData }) {
     if (initialData) {
       setTitle(initialData.title || '');
       setDueDate(initialData.dueDate?.slice(0, 10) || '');
-      setStatus(initialData.status || 'new')
+      setStatus(initialData.status || 'new');
       setPriority(initialData.priority || 'Low');
     } else {
       setTitle('');
       setDueDate('');
-      setStatus('')
+      setStatus('');
       setPriority('Low');
     }
   }, [initialData]);
 
   const handleSubmit = () => {
-    onSubmit({ title, dueDate, priority, status,...(initialData?._id && { _id: initialData._id }) });
+    onSubmit({
+      title,
+      dueDate,
+      priority,
+      status,
+      ...(initialData?._id && { _id: initialData._id }),
+    });
     onClose();
   };
 
@@ -56,13 +62,12 @@ export default function TaskModal({ isOpen, onClose, onSubmit, initialData }) {
             onValueChange={setPriority}
             placeholder="Low | Medium | High"
           />
-           <Select
+          <Select
             label="Status"
             selectedKeys={[status]}
-            
             onChange={(e) => setStatus(e.target.value)}
           >
-            <SelectItem key="pending" value="pending" >
+            <SelectItem key="pending" value="pending">
               Pending
             </SelectItem>
             <SelectItem key="new" value="new">

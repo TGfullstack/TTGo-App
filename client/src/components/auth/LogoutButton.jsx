@@ -19,9 +19,9 @@ export default function LogoutButton() {
   return (
     <Button
       isExternal
-      className='text-sm font-normal text-default-600 bg-default-100'
+      className="text-sm font-normal text-default-600 bg-default-100"
       onPress={handleLogout}
-      variant='flat'
+      variant="flat"
     >
       Logout
     </Button>

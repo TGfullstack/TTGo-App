@@ -1,5 +1,13 @@
-'use client'
-import { Table, TableHeader, TableBody, TableColumn, TableRow, TableCell, Chip } from '@heroui/react'
+'use client';
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableColumn,
+  TableRow,
+  TableCell,
+  Chip,
+} from '@heroui/react';
 
 export default function TodoTable({ todos = [] }) {
   return (
@@ -10,26 +18,18 @@ export default function TodoTable({ todos = [] }) {
         <TableColumn>DUE DATE</TableColumn>
       </TableHeader>
       <TableBody>
-        {todos.map(todo => (
+        {todos.map((todo) => (
           <TableRow key={todo._id}>
             <TableCell>{todo.name}</TableCell>
             <TableCell>
-              <Chip
-                color={
-                  todo.status === 'completed'
-                    ? 'success'
-                    : 'default'
-                }
-              >
+              <Chip color={todo.status === 'completed' ? 'success' : 'default'}>
                 {todo.status}
               </Chip>
             </TableCell>
-            <TableCell>
-              {new Date(todo.dueDate).toLocaleDateString()}
-            </TableCell>
+            <TableCell>{new Date(todo.dueDate).toLocaleDateString()}</TableCell>
           </TableRow>
         ))}
       </TableBody>
     </Table>
-  )
+  );
 }

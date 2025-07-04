@@ -1,6 +1,6 @@
 'use client';
 
-const { useEffect,useState } = require("react");
+const { useEffect, useState } = require('react');
 
 import {
   Button,
@@ -11,13 +11,13 @@ import {
   Select,
   SelectItem,
   Textarea,
-} from "@heroui/react";
+} from '@heroui/react';
 
 export default function CreateTaskForm() {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [status, setStatus] = useState("todo");
-  const [projectId, setProjectId] = useState("");
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [status, setStatus] = useState('todo');
+  const [projectId, setProjectId] = useState('');
   const [projects, setProjects] = useState([]);
 
   const [loading, setLoading] = useState(false);
@@ -26,7 +26,7 @@ export default function CreateTaskForm() {
   // 🔁 Load projects for dropdown
   useEffect(() => {
     const fetchProjects = async () => {
-      const res = await fetch("http://localhost:8080/api/v1/projects");
+      const res = await fetch('http://localhost:8080/api/v1/projects');
       const data = await res.json();
       setProjects(data);
     };
@@ -39,19 +39,24 @@ export default function CreateTaskForm() {
     setSuccess(false);
 
     try {
-      const res = await fetch("http://localhost:8080/api/v1/tasks", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title, description, status, project: projectId }),
+      const res = await fetch('http://localhost:8080/api/v1/tasks', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title,
+          description,
+          status,
+          project: projectId,
+        }),
       });
 
-      if (!res.ok) throw new Error("Failed to create task");
+      if (!res.ok) throw new Error('Failed to create task');
 
       // Reset form
-      setTitle("");
-      setDescription("");
-      setStatus("todo");
-      setProjectId("");
+      setTitle('');
+      setDescription('');
+      setStatus('todo');
+      setProjectId('');
       setSuccess(true);
     } catch (err) {
       console.error(err);
@@ -120,10 +125,12 @@ export default function CreateTaskForm() {
             Create Task
           </Button>
           {success && (
-            <p className="text-green-600 text-sm">✅ Task created successfully!</p>
+            <p className="text-green-600 text-sm">
+              ✅ Task created successfully!
+            </p>
           )}
         </form>
       </CardBody>
     </Card>
-  )
+  );
 }

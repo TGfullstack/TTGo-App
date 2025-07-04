@@ -1,11 +1,11 @@
 'use client';
 
-export function ProjectSidebar({ projects, currentProjectId, onSelect}) {
+export function ProjectSidebar({ projects, currentProjectId, onSelect }) {
   return (
     <aside className="w-64 border-r p-4">
       <h3 className="text-tiny font-semibold text-gray-600 mb-2">Projects</h3>
       <ul className="space-y-2">
-        {projects.map(project => (
+        {projects.map((project) => (
           <li
             key={project._id}
             onClick={() => onSelect(project._id)}
@@ -18,5 +18,5 @@ export function ProjectSidebar({ projects, currentProjectId, onSelect}) {
         ))}
       </ul>
     </aside>
-  )
-};
+  );
+}

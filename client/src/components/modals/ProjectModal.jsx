@@ -3,7 +3,12 @@ import { useState } from 'react';
 import ProjectForm from '../projects/ProjectForm';
 import ModalWrapper from './ModalWrapper';
 
-export default function ProjectModal({ isOpen, onClose, initialData = {}, onSaved }) {
+export default function ProjectModal({
+  isOpen,
+  onClose,
+  initialData = {},
+  onSaved,
+}) {
   const [key, setKey] = useState(Date.now());
 
   const handleSuccess = (project) => {
@@ -18,7 +23,11 @@ export default function ProjectModal({ isOpen, onClose, initialData = {}, onSave
       onClose={onClose}
       title={initialData?._id ? 'Edit Project' : 'New Project'}
     >
-      <ProjectForm key={key} initialData={initialData} onSuccess={handleSuccess} />
+      <ProjectForm
+        key={key}
+        initialData={initialData}
+        onSuccess={handleSuccess}
+      />
     </ModalWrapper>
   );
 }

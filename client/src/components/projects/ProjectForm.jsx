@@ -16,7 +16,7 @@ export default function ProjectForm({ initialData = {}, onSuccess }) {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm(prev => ({ ...prev, [name]: value }));
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
@@ -44,7 +44,6 @@ export default function ProjectForm({ initialData = {}, onSuccess }) {
       const data = await res.json();
       console.log('Success:', data);
       if (onSuccess) onSuccess(data);
-
     } catch (err) {
       console.error('Project submission error:', err.message);
       alert(err.message);
@@ -69,14 +68,14 @@ export default function ProjectForm({ initialData = {}, onSuccess }) {
         onChange={handleChange}
         isRequired
       />
-        <Input
-            label="Owner"
-            name='owner'
-            isRequired
-            value={form.owner}
-            onChange={handleChange}
-            placeholder="e.g. user _id"
-          />
+      <Input
+        label="Owner"
+        name="owner"
+        isRequired
+        value={form.owner}
+        onChange={handleChange}
+        placeholder="e.g. user _id"
+      />
       <Input
         label="Image URL"
         name="image"
