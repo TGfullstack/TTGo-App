@@ -8,7 +8,7 @@ import {
   ModalFooter,
   ModalHeader,
   Textarea,
-  useDisclosure
+  useDisclosure,
 } from '@heroui/react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -21,10 +21,9 @@ export default function CreateTaskButton() {
     description: '',
     due_date: '',
     status: 'todo',
-    priority: 'low'
+    priority: 'low',
   });
   const router = useRouter();
-
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -38,9 +37,9 @@ export default function CreateTaskButton() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(form)
+      body: JSON.stringify(form),
     });
 
     if (res.ok) {
@@ -54,7 +53,11 @@ export default function CreateTaskButton() {
 
   return (
     <>
-      <Button color="primary" onPress={onOpen} startContent={<PlusCircleIcon/>}>
+      <Button
+        color="primary"
+        onPress={onOpen}
+        startContent={<PlusCircleIcon />}
+      >
         Create New Task
       </Button>
 

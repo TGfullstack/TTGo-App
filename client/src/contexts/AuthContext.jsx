@@ -2,17 +2,16 @@
 /** Auth Context
  * ? What is Context?
  * A React hook that offers a way to manage state globally
- * 
+ *
  * * Provides a way to share data between components without manually passing props through
  * * each level of the component tree
- * 
+ *
  * Auth Context
  * - Centralized access to user and isLoggedIn
  * - Login/Logout functions available app-wide
  * - Cleaner, reusable auth logic
  * - Easier redirection and protected route handling
  */
-
 
 const jwtDecode = require('jwt-decode');
 import { createContext, useContext, useEffect, useState } from 'react';

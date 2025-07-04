@@ -2,9 +2,14 @@
 import { useState } from 'react';
 import TodoForm from '../todos/TodoForm';
 import ModalWrapper from './ModalWrapper';
-ModalWrapper
+ModalWrapper;
 
-export default function TodoModal({ isOpen, onClose, initialData = {}, onSaved }) {
+export default function TodoModal({
+  isOpen,
+  onClose,
+  initialData = {},
+  onSaved,
+}) {
   const [key, setKey] = useState(Date.now()); // force rerender on reopen
 
   const handleSuccess = (todo) => {
@@ -14,7 +19,11 @@ export default function TodoModal({ isOpen, onClose, initialData = {}, onSaved }
   };
 
   return (
-    <ModalWrapper isOpen={isOpen} onClose={onClose} title={initialData?._id ? 'Edit Todo' : 'New Todo'}>
+    <ModalWrapper
+      isOpen={isOpen}
+      onClose={onClose}
+      title={initialData?._id ? 'Edit Todo' : 'New Todo'}
+    >
       <TodoForm key={key} initialData={initialData} onSuccess={handleSuccess} />
     </ModalWrapper>
   );

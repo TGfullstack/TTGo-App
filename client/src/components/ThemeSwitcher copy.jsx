@@ -40,9 +40,10 @@ export const ThemeSwitch = ({ className, classNames }) => {
         className: clsx(
           'px-px transition-opacity hover:opacity-80 cursor-pointer',
           className,
-          classNames?.base,
+          classNames?.base
         ),
-      })}>
+      })}
+    >
       <VisuallyHidden>
         <input {...getInputProps()} />
       </VisuallyHidden>
@@ -61,9 +62,10 @@ export const ThemeSwitch = ({ className, classNames }) => {
               'px-0',
               'mx-0',
             ],
-            classNames?.wrapper,
+            classNames?.wrapper
           ),
-        })}>
+        })}
+      >
         {!isSelected || isSSR ? <SunFilledIcon /> : <MoonFilledIcon />}
       </div>
     </Component>

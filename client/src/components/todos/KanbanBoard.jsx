@@ -25,11 +25,14 @@ export default function KanbanBoard() {
     if (!newStatus || newStatus === todo.status) return;
 
     try {
-      const res = await fetch(`http://localhost:8080/api/v1/todos/${active.id}`, {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ status: newStatus }),
-      });
+      const res = await fetch(
+        `http://localhost:8080/api/v1/todos/${active.id}`,
+        {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ status: newStatus }),
+        }
+      );
       const updated = await res.json();
       setTodos((prev) =>
         prev.map((t) => (t._id === updated.todo._id ? updated.todo : t))

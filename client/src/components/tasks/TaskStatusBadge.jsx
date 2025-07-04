@@ -1,7 +1,6 @@
 'use client';
 
-import { Chip } from "@heroui/react";
-
+import { Chip } from '@heroui/react';
 
 const statusColors = {
   todo: 'default',
@@ -10,5 +9,9 @@ const statusColors = {
 };
 
 export default function TaskStatusBadge({ status }) {
-  return <Chip color={statusColors[status] || 'default'}>{status.replace('_', ' ')}</Chip>
-};
+  return (
+    <Chip color={statusColors[status] || 'default'}>
+      {status.replace('_', ' ')}
+    </Chip>
+  );
+}

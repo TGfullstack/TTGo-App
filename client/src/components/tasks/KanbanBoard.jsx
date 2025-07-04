@@ -25,11 +25,14 @@ export default function KanbanBoard() {
     if (!newStatus || newStatus === task.status) return;
 
     try {
-      const res = await fetch(`http://localhost:8080/api/v1/tasks/${active.id}`, {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ status: newStatus }),
-      });
+      const res = await fetch(
+        `http://localhost:8080/api/v1/tasks/${active.id}`,
+        {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ status: newStatus }),
+        }
+      );
       const updated = await res.json();
       setTasks((prev) =>
         prev.map((t) => (t._id === updated.task._id ? updated.task : t))

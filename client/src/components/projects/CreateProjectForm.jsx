@@ -1,10 +1,17 @@
 'use client';
 
-import Error from "next/error";
-const { Input, Textarea, Button, Card, CardHeader, CardBody } = require("@heroui/react");
-const { useState } = require("react");
+import Error from 'next/error';
+const {
+  Input,
+  Textarea,
+  Button,
+  Card,
+  CardHeader,
+  CardBody,
+} = require('@heroui/react');
+const { useState } = require('react');
 
-export default function CreateProjectForm({project = {}, onSubmit}) {
+export default function CreateProjectForm({ project = {}, onSubmit }) {
   const [name, setName] = useState(project.name || '');
   const [owner, setOwner] = useState(project.owner || '');
   const [slug, setSlug] = useState(project.slug || '');
@@ -14,25 +21,25 @@ export default function CreateProjectForm({project = {}, onSubmit}) {
   const [success, setSuccess] = useState(false);
 
   const handleSubmit = async (e) => {
-       e.preventDefault();
-       onSubmit({...project, name, description, owner, slug, image})
+    e.preventDefault();
+    onSubmit({ ...project, name, description, owner, slug, image });
     setIsSubmitting(true);
     setSuccess(false);
 
     try {
-      const res = await fetch("http://localhost:8080/api/v1/projects", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const res = await fetch('http://localhost:8080/api/v1/projects', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, description, owner, slug, image }),
       });
 
-      if (!res.ok) throw new Error("Failed to create project");
+      if (!res.ok) throw new Error('Failed to create project');
 
-      setName("");
-      setSlug("");
-      setImage("");
-      setDescription("");
-      setOwner("")
+      setName('');
+      setSlug('');
+      setImage('');
+      setDescription('');
+      setOwner('');
       setSuccess(true);
     } catch (err) {
       console.error(err);
@@ -42,10 +49,10 @@ export default function CreateProjectForm({project = {}, onSubmit}) {
   };
 
   return (
-      <Card className="w-full max-w-lg my-6">
+    <Card className="w-full max-w-lg my-6">
       <CardHeader className="text-xl font-bold">Create New Project</CardHeader>
       <CardBody>
-         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <Input
             label="Project Name"
             isRequired
@@ -74,7 +81,7 @@ export default function CreateProjectForm({project = {}, onSubmit}) {
             placeholder="https://example.com/image.png"
           />
           <Textarea
-            label="Description" 
+            label="Description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Brief overview of the project..."
@@ -93,5 +100,5 @@ export default function CreateProjectForm({project = {}, onSubmit}) {
         </form>
       </CardBody>
     </Card>
-  )
+  );
 }

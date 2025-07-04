@@ -3,14 +3,13 @@ import { useState } from 'react';
 import TaskForm from '../tasks/TaskForm';
 import ModalWrapper from './ModalWrapper';
 
-
 export default function TaskModal({ isOpen, onClose, initialData, onSaved }) {
-// const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  // const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [key, setKey] = useState(Date.now());
 
   const handleClose = () => {
-    onClose?.() // CLose parent modal state
-  }
+    onClose?.(); // CLose parent modal state
+  };
   const handleSuccess = (task) => {
     setKey(Date.now());
     onSaved?.(task);

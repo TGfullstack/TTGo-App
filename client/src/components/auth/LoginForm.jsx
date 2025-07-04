@@ -56,7 +56,7 @@ export default function LoginForm() {
           type="email"
           label="Email"
           name="primary_email"
-          size='lg'
+          size="lg"
           value={formData.primary_email}
           onChange={handleChange}
         />
@@ -65,12 +65,12 @@ export default function LoginForm() {
           type="password"
           label="Password"
           name="password"
-          size='lg'
+          size="lg"
           value={formData.password}
           onChange={handleChange}
         />
         {error && <p className="text-red-600 text-sm">{error}</p>}
-        <Button type="submit" size='lg' className="w-full">
+        <Button type="submit" size="lg" className="w-full">
           Log In
         </Button>
       </form>

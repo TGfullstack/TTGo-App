@@ -1,5 +1,5 @@
-'use client'
-import { Card, CardBody } from '@heroui/react'
+'use client';
+import { Card, CardBody } from '@heroui/react';
 
 export function EmptyState({ message = 'No data found.' }) {
   return (
@@ -8,5 +8,5 @@ export function EmptyState({ message = 'No data found.' }) {
         <p className="text-sm text-gray-500">{message}</p>
       </CardBody>
     </Card>
-  )
+  );
 }

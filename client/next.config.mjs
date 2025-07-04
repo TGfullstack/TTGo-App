@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'cdn.sanity.io'
+        hostname: 'cdn.sanity.io',
       },
       {
         protocol: 'https',
@@ -14,8 +14,8 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'images.unsplash.com',
       },
-    ]
-  }
+    ],
+  },
 };
 
 export default nextConfig;

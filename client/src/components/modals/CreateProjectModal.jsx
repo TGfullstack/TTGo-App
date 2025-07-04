@@ -1,16 +1,26 @@
-"use client";
+'use client';
 
-import { Input, Textarea } from "@heroui/react";
-import { useState } from "react";
-import ModalWrapper from "./ModalWrapper";
+import { Input, Textarea } from '@heroui/react';
+import { useState } from 'react';
+import ModalWrapper from './ModalWrapper';
 
-export default function CreateProjectModal({ isOpen, onClose, onProjectCreated }) {
-  const [formData, setFormData] = useState({ name: "", description: "", slug: "", image: "", owner: "" });
+export default function CreateProjectModal({
+  isOpen,
+  onClose,
+  onProjectCreated,
+}) {
+  const [formData, setFormData] = useState({
+    name: '',
+    description: '',
+    slug: '',
+    image: '',
+    owner: '',
+  });
 
   const handleSubmit = async () => {
-    const res = await fetch("http://localhost:8080/api/v1/projects", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+    const res = await fetch('http://localhost:8080/api/v1/projects', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
     });
 
@@ -20,7 +30,12 @@ export default function CreateProjectModal({ isOpen, onClose, onProjectCreated }
   };
 
   return (
-    <ModalWrapper isOpen={isOpen} onClose={onClose} title="Create New Project" onSubmit={handleSubmit}>
+    <ModalWrapper
+      isOpen={isOpen}
+      onClose={onClose}
+      title="Create New Project"
+      onSubmit={handleSubmit}
+    >
       <Input
         isRequired
         label="Project Name"
@@ -50,7 +65,9 @@ export default function CreateProjectModal({ isOpen, onClose, onProjectCreated }
       <Textarea
         label="Description"
         value={formData.description}
-        onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+        onChange={(e) =>
+          setFormData({ ...formData, description: e.target.value })
+        }
         placeholder="Brief overview of the project..."
       />
     </ModalWrapper>
